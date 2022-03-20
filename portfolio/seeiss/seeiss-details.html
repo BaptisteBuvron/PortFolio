@@ -108,48 +108,72 @@
 
                 </div>
 
-                <h2>La Maintenance effectuée</h2>
-                <p>Durant cette maintenance plusieurs modifications ont été apportées : </p>
-                <h3>1 ) Refactoring du code</h3>
-                <p>Le code de la classe <a
-                        href="https://github.com/BaptisteBuvron/SeeISS/pull/4/commits/0451f699a737ff1274d6c34c1ee9188c8330be0f">GetLocationService</a>
-                    a été modifié en retournant une classe au lieu d'un tableau pour les méthodes <code>&lt;getLatLonCity()&gt;</code>
-                    et <code>&lt;callApiCity()&gt;</code></p>
-                <p>Une classe Location a été créée, elle permet maintenant de remplacer le tableau qui était utilisé
-                    pour récupérer la latitude, la longitude et le nom de la ville.</p>
+                <h2>A) La Maintenance 1</h2>
+                <div class="row">
+                    <p>Durant cette maintenance plusieurs modifications ont été apportées : </p>
+                    <h3>1 ) Refactoring du code</h3>
+                    <p>Le code de la classe <a
+                            href="https://github.com/BaptisteBuvron/SeeISS/pull/4/commits/0451f699a737ff1274d6c34c1ee9188c8330be0f">GetLocationService</a>
+                        a été modifié en retournant une classe au lieu d'un tableau pour les méthodes <code>&lt;getLatLonCity()&gt;</code>
+                        et <code>&lt;callApiCity()&gt;</code></p>
+                    <p>Une classe Location a été créée, elle permet maintenant de remplacer le tableau qui était utilisé
+                        pour récupérer la latitude, la longitude et le nom de la ville.</p>
 
-                <h3>2 ) Géolocalisation de l'utilisateur</h3>
-                <p>L'utilisateur à la possibilité de se géolocaliser en utilisant son navigateur.</p>
-                <p>Auparavant, l'utilisateur devait rentrer manuellement l'adresse de sa ville pour pouvoir consulter
-                    les passages de l'ISS.</p>
-                <p>Maintenant, l'utilisateur à la possibilité de cliquer sur le bouton <strong>Localisation</strong>,
-                    puis il devra confirmer au navigateur qu'il accepte d'utiliser la géolocation.</p>
-                <p>Une latitude et une longitude seront récupérées par le script. Ensuite un appel sera réalisé sur l'api <a
-                        href="https://nominatim.openstreetmap.org/reverse.php?">nominatim</a> afin de récupérer le nom
-                    de la ville.</p>
-                <p>Ensuite la page s'actualisera avec les passages de l'ISS au-dessus de la localisation de
-                    l'utilisateur.
-                    <img class="img-fluid" src="localisation.PNG" alt="Localisation">
-                    <img class="img-fluid w-50" src="firefox.PNG" alt="Autorisation Firefox">
-                <h4>Veille technologique</h4>
-                <p>Pour réaliser cette fonctionnalité je me suis informé sur la demande de localisation dans un
-                    navigateur.</p>
-                <p>J'ai pour cela lu les différentes documentations que j'ai trouvées : </p>
-                <ol class="list-group list-group-numbered">
-                    <li class="list-group-item">
-                        <a href="https://www.w3schools.com/html/html5_geolocation.asp">W3Schools</a>
-                    </li>
-                    <li class="list-group-item"><a href="https://developer.mozilla.org/fr/docs/Web/API/Geolocation_API">MDN Web Docs</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="https://developers.google.com/maps/documentation/javascript/geolocation">Google Maps
-                            Platform</a>
-                    </li>
-                </ol>
-                <p class="mt-1">J'ai donc utilisé l'objet <code>Geolocation</code> présent dans les navigateurs.</p>
-                <p>Avec la méthode <code>navigator.geolocation.getCurrentPosition()</code>, l'utilisateur aura une fenêtre pour accepter ou refuser de fournir sa localisation.</p>
-                <p>Une autre alternative aurait été de récupérer l'IP de l'utilisateur et d'utiliser une api comme www.ipinfo.io. Seulement cette méthode nécessite une autorisation de la part de l'utilisateur (RGPD).</p>
+                    <h3>2 ) Géolocalisation de l'utilisateur</h3>
+                    <p>L'utilisateur à la possibilité de se géolocaliser en utilisant son navigateur.</p>
+                    <p>Auparavant, l'utilisateur devait rentrer manuellement l'adresse de sa ville pour pouvoir consulter
+                        les passages de l'ISS.</p>
+                    <p>Maintenant, l'utilisateur à la possibilité de cliquer sur le bouton <strong>Localisation</strong>,
+                        puis il devra confirmer au navigateur qu'il accepte d'utiliser la géolocation.</p>
+                    <p>Une latitude et une longitude seront récupérées par le script. Ensuite un appel sera réalisé sur l'api <a
+                            href="https://nominatim.openstreetmap.org/reverse.php?">nominatim</a> afin de récupérer le nom
+                        de la ville.</p>
+                    <p>Ensuite la page s'actualisera avec les passages de l'ISS au-dessus de la localisation de
+                        l'utilisateur.
+                        <img class="img-fluid" src="localisation.PNG" alt="Localisation">
+                        <img class="img-fluid w-50" src="firefox.PNG" alt="Autorisation Firefox">
+                    <h4>Veille technologique</h4>
+                    <p>Pour réaliser cette fonctionnalité je me suis informé sur la demande de localisation dans un
+                        navigateur.</p>
+                    <p>J'ai pour cela lu les différentes documentations que j'ai trouvées : </p>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item">
+                            <a href="https://www.w3schools.com/html/html5_geolocation.asp">W3Schools</a>
+                        </li>
+                        <li class="list-group-item"><a href="https://developer.mozilla.org/fr/docs/Web/API/Geolocation_API">MDN Web Docs</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="https://developers.google.com/maps/documentation/javascript/geolocation">Google Maps
+                                Platform</a>
+                        </li>
+                    </ol>
+                    <p class="mt-1">J'ai donc utilisé l'objet <code>Geolocation</code> présent dans les navigateurs.</p>
+                    <p>Avec la méthode <code>navigator.geolocation.getCurrentPosition()</code>, l'utilisateur aura une fenêtre pour accepter ou refuser de fournir sa localisation.</p>
+                    <p>Une autre alternative aurait été de récupérer l'IP de l'utilisateur et d'utiliser une api comme www.ipinfo.io. Seulement cette méthode nécessite une autorisation de la part de l'utilisateur (RGPD).</p>
 
+                </div>
+                <h2>B) La Maintenance 2</h2>
+                <div class="row">
+                    <p>Le but de cette maintenance est d'ajouter à l'API un endpoint pour récupérer la position en temps réel de l'ISS</p>
+                    <p>Durant cette maintenance plusieurs modifications ont été apportées : </p>
+                    <h3>1) Création de l'entité SatLocalisation </h3>
+                    <p>L'entité SatLocalisation a été créee, celle-ci contient toutes les informations de l'ISS à chaque instant : </p>
+                    <ol>
+                        <li>Le nom de l'objet</li>
+                        <li>La latitude</li>
+                        <li>La longitude</li>
+                        <li>L'altitude en km</li>
+                        <li>La vitesse en km/h</li>
+                        <li>La date en timestamp</li>
+                        <li>L'élévation par rapport à l'observateur</li>
+                        <li>La direction par rapport à l'observateur</li>
+                    </ol>
+                    <h3>2) Création d'un provider pour récupérer la localisation de l'ISS</h3>
+                    <p>Un provider pour l'entité SatLocalisation a été créé. Ce provider explique à API Platform comment générer les données, car celles-ci ne sont pas stockées en base de données.</p>
+                    <h3>3) Modification du service responsable du calcul des données pour l'adapter à l'API.</h3>
+                    <h4>Veille technologique</h4>
+                    <p>Pour la création de l'API, j'ai choisi d'utiliser <a href="https://api-platform.com/">API Platform</a> API Platform est un framework web utilisé pour générer des API REST et GraphQL3, se basant sur le patron de conception MVC.</p>
+                </div>
 
             </div>
 
