@@ -171,8 +171,10 @@
                     <h3>2) Création d'un provider pour récupérer la localisation de l'ISS</h3>
                     <p>Un provider pour l'entité SatLocalisation a été créé. Ce provider explique à API Platform comment générer les données, car celles-ci ne sont pas stockées en base de données.</p>
                     <h3>3) Modification du service responsable du calcul des données pour l'adapter à l'API</h3>
+                    <p>Création d'une méthode qui récupère la position de l'ISS toutes les 5 secondes. Un intervalle de position est retourné correspondant aux positions 1h30 avant la date actuelle et 1h30 après la date actuelle. </p>
                     <h4>Veille technologique</h4>
                     <p>Pour la création de l'API, j'ai choisi d'utiliser <a href="https://api-platform.com/">API Platform</a> API Platform est un framework web utilisé pour générer des API REST et GraphQL3, se basant sur le patron de conception MVC.</p>
+                    <p>Ainsi, à partir des entités Symfony, je peux facilement créer un accès API à partir des données en base de données ou en créer un provider spécifique pour chaque entité.</p>
                 </div>
 
             </div>
